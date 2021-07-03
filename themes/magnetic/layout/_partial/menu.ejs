@@ -1,0 +1,50 @@
+<!-- Navigation -->
+<header>
+    <div class="logo">
+        <a href="<%- config.root %>"><%- config.title || "" %></a>
+    </div><!-- end logo -->
+
+    <div id="menu_icon"></div>
+    <nav>
+        <ul>
+            <% for (var i in theme.menu){ %>
+            <li>
+                <a href="<%- url_for(theme.menu[i]) %>"><%= i %></a>
+            </li>
+            <% } %>
+        </ul>
+    </nav><!-- end navigation menu -->
+
+    <div class="footer clearfix">
+        <ul class="social clearfix">
+            <% if (theme.twitter_url) { %>
+                <li><a href="<%- theme.twitter_url %>" class="twitter" target="_blank" data-title="Twitter"></a></li>
+            <% } %>
+            <% if (theme.facebook_url) { %>
+                <li><a href="<%- theme.facebook_url %>" class="fb" target="_blank" data-title="Facebook"></a></li>
+            <% } %>
+            <% if (theme.behance_url) { %>
+                <li><a href="<%- theme.behance_url %>" class="behance" target="_blank" data-title="Behance"></a></li>
+            <% } %>
+            <% if (theme.googleplus_url) { %>
+                <li><a href="<%- theme.googleplus_url %>" class="google" target="_blank" data-title="Google+"></a></li>
+            <% } %>
+            <% if (theme.dribble_url) { %>
+                <li><a href="<%- theme.dribble_url %>" class="dribble" target="_blank" data-title="Dribble"></a></li>
+            <% } %>
+            <% if (theme.rss_url) { %>
+                <li><a href="<%- theme.rss_url %>" class="rss" target="_blank" data-title="RSS"></a></li>
+            <% } %>
+            <% if (theme.instagram_url) { %>
+                <li><a href="<%- theme.instagram_url %>" class="instagram" target="_blank" data-title="Instagram"></a></li>
+            <% } %>
+            <% if (theme.youtube_url) { %>
+                <li><a href="<%- theme.youtube_url %>" class="youtube" target="_blank" data-title="Youtube"></a></li>
+            <% } %>
+        </ul><!-- end social -->
+
+        <div class="rights">
+            <p>Made with <span style="color: #e25555;">&hearts;</span> by 339.</p>
+        </div><!-- end rights -->
+    </div ><!-- end footer -->
+</header><!-- end header -->

@@ -1,0 +1,19 @@
+User-agent: *
+Allow: /
+Allow: /articles/
+Allow: /archives/
+
+Disallow: /js/
+Disallow: /css/
+Disallow: /lib/
+
+User-agent: PetalBot
+Disallow: /
+
+User-agent: ZoominfoBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+Sitemap: https://bing.339.im/sitemap.xml
