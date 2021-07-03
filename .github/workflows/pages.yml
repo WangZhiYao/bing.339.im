@@ -33,6 +33,6 @@ jobs:
           REMOTE_PORT: ${{ secrets.DEPLOY_PORT }}
           REMOTE_USER: ${{ secrets.DEPLOY_USER }}
           SSH_PRIVATE_KEY: ${{ secrets.DEPLOY_KEY }}
-          SOURCE: public
+          SOURCE: public/
           TARGET: ${{ secrets.DEPLOY_PATH }}
       
