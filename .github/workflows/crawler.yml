@@ -9,41 +9,36 @@ jobs:
   crawler:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout
+        uses: actions/checkout@v3
         with:
            token: ${{ secrets.ACCESS_TOKEN }}
-      - name: Use Python 3.x
-        uses: actions/setup-python@v2
-        with: 
-          python-version: '3.x'
-      - name: Cache pip
-        uses: actions/cache@v2
+
+      - name: Setup Python
+        uses: actions/setup-python@v4.7.0
         with:
-          # This path is specific to Ubuntu
-          path: ~/.cache/pip
-          # Look to see if there is a cache hit for the corresponding requirements file
-          key: ${{ runner.os }}-pip-${{ hashFiles('requirements.txt') }}
-          restore-keys: |
-            ${{ runner.os }}-pip-
-            ${{ runner.os }}-
+          python-version: '3.11.4'
+          cache: 'pip'
+          check-latest: true
+          cache-dependency-path: '**/requirements.txt'
+
       - name: Install dependencies
         run: |
-          python -m pip install --upgrade pip
+          python3 -m pip install --upgrade pip
           pip install -r requirements.txt
+
       - name: Set Timezone
         uses: zcong1993/setup-timezone@v1.1.1
         with: 
           timezone: 'Asia/Shanghai'
+
       - name: Crawler
         run: python BingWallpaper.py
+
       - name: Commit
         run: |
-          git config --global user.email 393893729@qq.com
-          git config --global user.name WangZhiYao
+          git config --local user.email 393893729@qq.com
+          git config --local user.name WangZhiYao
           git add .
-          git commit -m "Updated: `date +'%Y-%m-%d %H:%M:%S'`" -a
-      - name: Push changes
-        uses: ad-m/github-push-action@master
-        with:
-          github_token: ${{ secrets.ACCESS_TOKEN }}
-          branch: master 
+          git commit -a -m "Update: `TZ='Asia/Shanghai' date +'%Y-%m-%d %H:%M:%S'`"
+          git push
