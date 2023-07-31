@@ -5,11 +5,11 @@
 # Site
 title: Bing Wallpapers
 subtitle: ''
-description: 'Less is more'
+description: 'Bing daily wallpaper'
 keywords: Bing Wallpapers
 author: 339
 language: zh-CN
-timezone: Asia/Shanghai
+timezone: 'Asia/Shanghai'
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'

@@ -27,13 +27,8 @@ jobs:
           python3 -m pip install --upgrade pip
           pip3 install -r requirements.txt
 
-      - name: Set Timezone
-        uses: zcong1993/setup-timezone@v1.1.1
-        with: 
-          timezone: 'Asia/Shanghai'
-
       - name: Crawler
-        run: python BingWallpaper.py
+        run: python crawler.py
 
       - name: Commit
         run: |
