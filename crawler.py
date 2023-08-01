@@ -53,7 +53,7 @@ def download_image(image_content):
     try:
         response = requests.get(image_url, stream=True)
         response.raise_for_status()
-        image_path = f'{HEXO_IMAGE_DIR}/{image_file_name}'
+        image_path = HEXO_IMAGE_DIR / image_file_name
         with open(image_path, 'wb') as w:
             w.write(response.content)
         return image_file_name
