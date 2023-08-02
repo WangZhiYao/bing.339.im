@@ -65,6 +65,8 @@ def download_image(image_content):
 def get_image_url(image):
     image_url = image.url.replace('webp', 'jpg')
     if not image_url.startswith('https://'):
+        if image_url.startswith('/'):
+            image_url = image_url[1:]
         image_url = 'https://s.cn.bing.net/' + image_url
     return image_url
 
