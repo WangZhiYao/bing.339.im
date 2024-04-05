@@ -36,4 +36,9 @@ jobs:
           git config --local user.name 'github-actions[bot]'
           git add .
           git commit -a -m "Update: `TZ='Asia/Shanghai' date +'%Y-%m-%d %H:%M:%S'`"
-          git push
+          
+      - name: Push
+        uses: ad-m/github-push-action@master
+        with: 
+          github_token: ${{ secrets.ACCESS_TOKEN }}
+      
