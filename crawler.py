@@ -36,6 +36,7 @@ def get_image():
     try:
         response = requests.get(BING_API_URL, params=BING_API_PARAMS, headers=BING_API_HEADERS)
         response.raise_for_status()
+        logging.info(response.text)
         api_model = ApiModel.from_dict(response.json())
         for media_content in api_model.media_contents:
             if datetime.strptime(media_content.full_date_string, '%Y %m月 %d').date() == TODAY.date():
